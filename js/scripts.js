@@ -51,8 +51,12 @@ Play.prototype.endTurn = function() {
   }
 }
 
-// Play.prototype.checkWinner = function() {
-//   if
+// Board.prototype.checkWinner = function() {
+//   if (1===2===3 || ){
+//   return true;
+//   }else {
+//   return false;
+//   }
 // }
 //
 // function ResetBoard() {
@@ -70,69 +74,69 @@ $(document).ready(function() {
     var Player2 = new Player(player2Name, symbol2, 0);
 
     var play = new Play(player1, player2);
-    var board = game.board
+    var board = play.board
 
     $("#1").click(function(){
       var space = board.topLeft;
       var currentPlayer = play.currentPlayer;
       var symbol = space.mark(currentPlayer);
-      game.endTurn();
+      play.endTurn();
     });
 
     $("#2").click(function(){
       var space = board.topCenter;
       var currentPlayer = play.currentPlayer;
       var symbol = space.mark(currentPlayer);
-      game.endTurn();
+      play.endTurn();
     });
 
     $("#3").click(function(){
       var space = board.topRight;
       var currentPlayer = play.currentPlayer;
       var symbol = space.mark(currentPlayer);
-      game.endTurn();
+      play.endTurn();
     });
 
     $("#4").click(function(){
       var space = board.middleLeft;
       var currentPlayer = play.currentPlayer;
       var symbol = space.mark(currentPlayer);
-      game.endTurn();
+      play.endTurn();
     });
 
     $("#5").click(function(){
       var space = board.middleCenter;
       var currentPlayer = play.currentPlayer;
       var symbol = space.mark(currentPlayer);
-      game.endTurn();
+      play.endTurn();
     });
 
     $("#6").click(function(){
       var space = board.middleRight;
       var currentPlayer = play.currentPlayer;
       var symbol = space.mark(currentPlayer);
-      game.endTurn();
+      play.endTurn();
     });
 
     $("#7").click(function(){
       var space = board.bottomLeft;
       var currentPlayer = play.currentPlayer;
       var symbol = space.mark(currentPlayer);
-      game.endTurn();
+      play.endTurn();
     });
 
     $("#8").click(function(){
       var space = board.bottomCenter;
       var currentPlayer = play.currentPlayer;
       var symbol = space.mark(currentPlayer);
-      game.endTurn();
+      play.endTurn();
     });
 
     $("#9").click(function(){
       var space = board.bottomRight;
       var currentPlayer = play.currentPlayer;
       var symbol = space.mark(currentPlayer);
-      game.endTurn();
+      play.endTurn();
     });
 
 
