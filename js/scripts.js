@@ -1,12 +1,18 @@
 var player = [];
 var space = [];
 var board = [];
+// var player1 ="";
+// var player2 = "";
 
 function Player( pname, symbol, score) {
     this.pname = pname;
     this.symbol = symbol;
     this.score = score;
     player.push(this);
+}
+
+function move(player) {
+  
 }
 
 function Space( coorx, coory ) { //Make prototype constructors capital S
@@ -28,18 +34,32 @@ function Board( ){
   this.topright = new Space("3", "3");
 }
 
+function PlayerTurn() {
+  if (turn % 2 === 0) {
+    Player2.move();
+  } else {
+    Player1.move();
+  }
+}
 
+// function Game( player, board) {
 //
-// $(document).ready(function() {
-//   $("form#factorial").submit(function(event) {
-//     var number= parseInt($("input#number").val());
-//     var result = factorial(number);
-//
-//       $(".number").text(number)
-//       $(".final").text(result)
-//        $("#result").show()
-//
-//
-//     event.preventDefault();
-//   });
-// });
+// }
+
+
+
+
+$(document).ready(function() {
+  $("form#players").submit(function(event) {
+    var player1Name = $("input#player1Name").val();
+    var symbol1 = $("select#symbol").val();
+    var Player1 = new Player(player1Name, symbol1, 0);
+
+    var player2Name = $("input#player2Name").val();
+    var symbol2 = $("select#symbol").val();
+    var Player2 = new Player(player2Name, symbol2, 0);
+
+
+    event.preventDefault();
+  });
+});
