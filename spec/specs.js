@@ -13,6 +13,12 @@ describe('space', function() {
     expect(newSpace.coorX).to.equal("1");
     expect(newSpace.coorY).to.equal("3");
   });
+  it('will mark a space on the board with a players symbol', function() {
+    var newSpace = new Space("1", "3");
+    var newPlayer = new Player("Bob", "X", 0);
+    expect( newSpace.mark(newPlayer) ).to.equal("X");
+
+  });
 });
 
 describe('board', function() {
@@ -21,3 +27,10 @@ describe('board', function() {
     expect(newBoard.bottomleft.coorX).to.eql("1");
   });
 });
+
+// describe('play', function() {
+//   it('will start a new play in the game', function() {
+//     var newPlay = new Play(Player1, Player2);
+//     expect(play.currentPlayer).to.equal(Player1);
+//   })
+// })
