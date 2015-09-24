@@ -19,10 +19,20 @@ function Space( coorx, coory ) { //Make prototype constructors capital S
     //space.markby(player);
 }
 
+
 Space.prototype.mark = function(player) {
-  this.markedby = player.symbol;
-  return player.symbol;
+    this.markedby = player.symbol;
+    return player.symbol;
 }
+
+//To determine if a space is already taken, if free, mark by a player
+Space.prototype.markSpaceTaken = function  () {
+  if (this.markedby === "") {
+  var symbol = space.mark(currentPlayer); }
+     else {
+       $('div#alert').show();
+     }
+  }
 
 function Board( ){
   this.one = new Space("1", "1");
@@ -34,6 +44,10 @@ function Board( ){
   this.seven = new Space("3", "1");
   this.eight = new Space("3", "2");
   this.nine = new Space("3", "3");
+}
+
+Board.prototype.findSpace = function() {
+  return this.Space();
 }
 
 function Play(playerOne, playerTwo) {
@@ -74,71 +88,16 @@ $(document).ready(function() {
     var Player2 = new Player(player2Name, symbol2, 0);
 
     var play = new Play(player1, player2);
-    var board = play.board
+    var board = play.board;
 
-    $("#1").click(function(){
-      var space = board.topLeft;
+
+    $(".square").click(function(){
+      var space = $(this);   //.data('#id');
       var currentPlayer = play.currentPlayer;
-      var symbol = space.mark(currentPlayer);
+      space.markSpaceTaken(); //To determine if a space is already taken, if free, mark by a player
+
       play.endTurn();
     });
-
-    $("#2").click(function(){
-      var space = board.topCenter;
-      var currentPlayer = play.currentPlayer;
-      var symbol = space.mark(currentPlayer);
-      play.endTurn();
-    });
-
-    $("#3").click(function(){
-      var space = board.topRight;
-      var currentPlayer = play.currentPlayer;
-      var symbol = space.mark(currentPlayer);
-      play.endTurn();
-    });
-
-    $("#4").click(function(){
-      var space = board.middleLeft;
-      var currentPlayer = play.currentPlayer;
-      var symbol = space.mark(currentPlayer);
-      play.endTurn();
-    });
-
-    $("#5").click(function(){
-      var space = board.middleCenter;
-      var currentPlayer = play.currentPlayer;
-      var symbol = space.mark(currentPlayer);
-      play.endTurn();
-    });
-
-    $("#6").click(function(){
-      var space = board.middleRight;
-      var currentPlayer = play.currentPlayer;
-      var symbol = space.mark(currentPlayer);
-      play.endTurn();
-    });
-
-    $("#7").click(function(){
-      var space = board.bottomLeft;
-      var currentPlayer = play.currentPlayer;
-      var symbol = space.mark(currentPlayer);
-      play.endTurn();
-    });
-
-    $("#8").click(function(){
-      var space = board.bottomCenter;
-      var currentPlayer = play.currentPlayer;
-      var symbol = space.mark(currentPlayer);
-      play.endTurn();
-    });
-
-    $("#9").click(function(){
-      var space = board.bottomRight;
-      var currentPlayer = play.currentPlayer;
-      var symbol = space.mark(currentPlayer);
-      play.endTurn();
-    });
-
 
     event.preventDefault();
   });
