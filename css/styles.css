@@ -1,3 +1,16 @@
 #result {
   display: none;
 }
+
+table {
+  width: 60%;
+  height: 60%
+}
+
+table, tr, td {
+  border: 8px solid black;
+}
+
+tr, td {
+  padding: 55px;
+}
