@@ -73,7 +73,34 @@ describe('board', function() {
     expect(newBoard.isWinner()).to.equal(true);
   });
 
-  it('will check to see if all spaces are filled', )
+  it('will check to see if all spaces are filled', function() {
+    var newBoard = new Board();
+    var newPlayer = new Player("bonnie", "x", 3);
+    newBoard.one.mark(newPlayer);
+    newBoard.two.mark(newPlayer);
+    newBoard.three.mark(newPlayer);
+    newBoard.four.mark(newPlayer);
+    newBoard.five.mark(newPlayer);
+    newBoard.six.mark(newPlayer);
+    newBoard.seven.mark(newPlayer);
+    newBoard.eight.mark(newPlayer);
+    newBoard.nine.mark(newPlayer);
+
+    var groups = [
+      [newBoard.one.markedby, newBoard.two.markedby, newBoard.three.markedby],
+      [newBoard.four.markedby, newBoard.five.markedby, newBoard.six.markedby],
+      [newBoard.seven.markedby, newBoard.eight.markedby, newBoard.nine.markedby],
+
+      [newBoard.one.markedby, newBoard.four.markedby, newBoard.seven.markedby],
+      [newBoard.two.markedby, newBoard.five.markedby, newBoard.eight.markedby],
+      [newBoard.three.markedby, newBoard.six.markedby, newBoard.nine.markedby],
+
+      [newBoard.nine.markedby, newBoard.five.markedby, newBoard.one.markedby],
+      [newBoard.seven.markedby, newBoard.five.markedby, newBoard.three.markedby]
+    ];
+    expect(newBoard.allSpacesFilled()).to.equal(true);
+  });
+
 });
 
 
